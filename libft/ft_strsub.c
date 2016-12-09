@@ -2,6 +2,8 @@
 
 char * ft_strsub(char const *s, unsigned int start, size_t len)
 {
+    if (s == NULL)
+        return 0;
     size_t i;
     char *res;
     

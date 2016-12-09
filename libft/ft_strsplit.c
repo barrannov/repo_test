@@ -53,6 +53,8 @@ char	**ft_strsplit(char const *s, char c)
 	int f;
 	int y;
 
+    if (s == NULL)
+        return 0;
 	y = ft_count_w((char *)s, c);
 	f = 1;
 	count_words = 0;

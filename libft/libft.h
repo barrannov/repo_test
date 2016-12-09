@@ -15,10 +15,10 @@ void	ft_bzero(void *s, size_t n);
 void *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 void *ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
 void 	*ft_memmove(void *dst, const void *src, size_t len);
-int        ft_strlen(char *str);
+int		ft_strlen(char *str);
 char *ft_strdup(const char *str);
 char * ft_strcpy(char * dst, const char * src);
-char *ft_strncpy(char * dst, const char * src, size_t len);
+char	*ft_strncpy(char *dst1, const char *src, size_t len);
 char * ft_strcat(char *restrict s1, const char *restrict s2);
 char * ft_strncat(char *restrict s1, const char *restrict s2, size_t n);
 int	ft_isalpha(int c);
@@ -57,5 +57,16 @@ char ** ft_strsplit(char const *s, char c);
 
 //extra
 char    *ft_remove_g(char *s, char c);
+
+/*
+    bonus
+*/
+
+typedef struct s_list
+{
+    void *content;
+    size_t content_size;
+    struct s_list *next;
+} t_list;
 
 #endif

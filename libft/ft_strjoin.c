@@ -7,6 +7,8 @@ char    *ft_strjoin(char const *s1, char const*s2)
     int i;
     int c;
     
+    if (s1 == NULL)
+        return 0;
     c = 0;
     i = 0;
     ss = ft_strlen((char *)s1) + ft_strlen((char *)s2);
