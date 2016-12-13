@@ -6,21 +6,30 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 19:48:07 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/09 19:59:54 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 13:28:50 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list * ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list *tmp;
+	t_list *prev;
+	t_list *new;
+	t_list *beg;
 
-	tmp = (t_list *)malloc(sizeof(t_list));
-	while(lst)
+	if (!lst)
+		return (NULL);
+	new = f(lst);
+	beg = new;
+	prev = new;
+	while (lst->next)
 	{
-		tmp = f(lst);
 		lst = lst->next;
+		new = f(lst);
+		prev->next = new;
+		prev = new;
 	}
-	return (lst);
+	new->next = NULL;
+	return (beg);
 }

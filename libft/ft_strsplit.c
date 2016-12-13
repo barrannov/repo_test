@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/12 14:38:01 by abaranov          #+#    #+#             */
+/*   Updated: 2016/12/12 17:50:42 by abaranov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ft_count_l(char *s, char c)
 {
-	int test;
-	int i;
-	
+	int		test;
+	int		i;
+
 	test = 0;
 	i = 0;
-	while(((char )s[i]) != c && ((char )s[i]) != '\0')
+	while (((char)s[i]) != c && ((char)s[i]) != '\0')
 		i++;
 	return (i);
 }
 
-char *full(char *s , int c)
+char	*full(char *s, int c)
 {
-	char *res;
-	int i;
+	char	*res;
+	int		i;
 
 	i = 0;
 	res = (char *)malloc(ft_count_l((char *)s, c) * sizeof(char) + 1);
-	while(i < ft_count_l((char *)s, c))
+	while (i < ft_count_l((char *)s, c))
 	{
 		res[i] = (char)s[i];
 		i++;
@@ -28,55 +40,51 @@ char *full(char *s , int c)
 	return (res);
 }
 
-int		ft_count_w(char *s, char c)
+int		ft_count_w(const char *s, char c)
 {
-    char *p;
-    int cw;
+	char	*p;
+	int		cw;
 
-    cw = 0;
-    while(*s)
-    {
-        (*s == c && *s)? s++: 0;
-        p = (char *)s;
-        while (*p != c && *p)
-            p++;
-        (*s != c && *s)? cw++: 0;
-        s = p;
-    }
-    return (cw);
+	if (s == 0)
+		return (0);
+	cw = 0;
+	while (*s)
+	{
+		(*s == c && *s) ? s++ : 0;
+		p = (char *)s;
+		while (*p != c && *p)
+			p++;
+		(*s != c && *s) ? cw++ : 0;
+		s = p;
+	}
+	return (cw);
 }
 
 char	**ft_strsplit(char const *s, char c)
 {
-	char **res;
-	int count_words;
-	int f;
-	int y;
+	char	**r;
+	int		lol[3];
 
-    if (s == NULL)
-        return 0;
-	y = ft_count_w((char *)s, c);
-	f = 1;
-	count_words = 0;
-	res = (char **)malloc(y * sizeof(char*) + 1);
-	if (res == 0)
-		return (0);
-	while (s && count_words < y)
+	if (!(r = (char **)malloc((ft_count_w(s, c) + 1) * 8)))
+		return (NULL);
+	lol[1] = ft_count_w((char *)s, c);
+	lol[0] = 1;
+	lol[2] = 0;
+	while (lol[2] < lol[1] && s)
 	{
-		if (*(char *)s == c && s)
+		if (*(char *)s == c)
 		{
-			while (*((char *)s) != c && s)
-				s++;
-			f = 1;
+			while (*((char *)s) != c && s++)
+				;
+			lol[0] = 1;
 		}
-		else if (f == 1 && s)
+		else if (lol[0] == 1 && s)
 		{
-			res[count_words] = full((char *)s, c);
-			count_words++;
-			f = 0;
+			r[lol[2]++] = full((char *)s, c);
+			lol[0] = 0;
 		}
 		s++;
 	}
-	res[count_words] = (char *)'\0';
-	return (res);
+	r[lol[2]++] = (char *)'\0';
+	return (r);
 }

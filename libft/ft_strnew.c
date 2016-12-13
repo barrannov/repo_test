@@ -6,7 +6,7 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 16:34:20 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/02 17:00:21 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 18:09:53 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_strnew(size_t size)
 	char *res;
 
 	res = malloc(size + 1);
-	if(!res)
-		return NULL;
+	if (!res)
+		return (NULL);
 	ft_bzero(res, size + 1);
 	return (res);
 }

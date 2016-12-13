@@ -6,7 +6,7 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 18:00:47 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/01 21:06:35 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 14:36:08 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strncpy(char *dst1, const char *src, size_t len)
 {
-	size_t i;
-	char *dst;
+	size_t		i;
+	char		*dst;
 
 	dst = dst1;
 	i = 0;

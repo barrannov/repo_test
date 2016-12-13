@@ -6,7 +6,7 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 14:42:19 by abaranov          #+#    #+#             */
-/*   Updated: 2016/11/28 15:17:22 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 13:16:16 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_bzero(void *s, size_t n)
 {
 	if (n > 0)
 	{
-		while(n--)
+		while (n--)
 		{
-			*(unsigned char *)s++ ='\0';
+			*(unsigned char *)s++ = '\0';
 		}
 	}
 }

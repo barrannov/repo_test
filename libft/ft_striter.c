@@ -6,21 +6,20 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 15:00:33 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/06 15:04:04 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 18:07:30 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	int i;
 
 	if (!s || !f)
 		return ;
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		f(&(s[i]));
 		i++;
 	}
 }
-

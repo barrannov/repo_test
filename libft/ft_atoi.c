@@ -6,48 +6,32 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 15:32:57 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/01 20:11:40 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/10 21:23:05 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		atoi_garbage(char *str, int count, int flag)
-{
-	if (str[count] == '+' && flag)
-	{
-		count++;
-		flag = 0;
-	}
-	if (str[count] == '+' && flag != 1)
-		return (-1);
-	if (str[count] == '-' && flag != 1)
-		return (-1);
-	return (count);
-}
+#include "libft.h"
 
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
-	int count;
-	int mem;
-	int flag;
+	int f;
+	int s;
 
-	mem = 0;
-	count = 0;
-	flag = 1;
-	while (str[count] < 33)
-		count++;
-	if (str[count] == '-')
+	s = 1;
+	f = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-' && *(str + 1) >= '0' && *(str + 1) <= '9')
 	{
-		count++;
-		flag = -1;
+		s = -1;
+		str++;
 	}
-	if (atoi_garbage(str, count, flag) != -1)
-		count = atoi_garbage(str, count, flag);
-	while (str[count] <= '9' && str[count] >= '0')
+	if (*str == '+' && *(str + 1) >= '0' && *(str + 1) <= '9')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		mem *= 10;
-		mem += (str[count++] - '0');
+		f = f * 10 + *str - '0';
+		str++;
 	}
-	if (flag >= 0)
-		return (mem);
-	return (-mem);
+	return (f * s);
 }

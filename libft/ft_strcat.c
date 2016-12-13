@@ -6,13 +6,13 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 13:19:10 by abaranov          #+#    #+#             */
-/*   Updated: 2016/11/29 13:36:36 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 14:03:02 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
 	int i;
 	int c;
@@ -30,5 +30,5 @@ char *ft_strcat(char *restrict s1, const char *restrict s2)
 		i++;
 	}
 	s1[i] = '\0';
-	return(s1);
+	return (s1);
 }

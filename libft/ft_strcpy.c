@@ -6,20 +6,20 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 17:44:46 by abaranov          #+#    #+#             */
-/*   Updated: 2016/11/28 17:57:30 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 14:05:45 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcpy(char *dst, const char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	int i;
 
 	i = 0;
-	while(src[i])
+	while (src[i])
 	{
-    dst[i] = src[i];
-	i++;
+		dst[i] = src[i];
+		i++;
 	}
-dst[i] = '\0';
+	dst[i] = '\0';
 	return (dst);
 }

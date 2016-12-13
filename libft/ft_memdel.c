@@ -6,16 +6,16 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 12:01:40 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/02 16:31:24 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 13:44:20 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_memdel(void **ap)
+void	ft_memdel(void **ap)
 {
-    if (!ap || !*ap)
-        return ;
+	if (!ap || !*ap)
+		return ;
 	free(*ap);
 	*ap = NULL;
 }

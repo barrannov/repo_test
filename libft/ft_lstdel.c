@@ -6,16 +6,16 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 18:28:19 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/09 19:14:45 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/12 13:26:56 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list* next;
-	t_list* nexton;
+	t_list *next;
+	t_list *nexton;
 
 	next = *alst;
 	while (next)
@@ -24,6 +24,6 @@ void ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 		del(next->content, next->content_size);
 		free(next);
 		next = nexton;
-	}	
+	}
 	*alst = NULL;
 }
