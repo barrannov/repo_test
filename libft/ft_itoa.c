@@ -6,20 +6,20 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:39:49 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/13 19:14:23 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/13 22:17:15 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		min(int n)
+static	int		min(int n)
 {
 	if (n < 0)
 		n = -n;
 	return (n);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char			*res;
 	int				len;

@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_w.c                                       :+:      :+:    :+:   */
+/*   ft_amount_d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/13 19:45:17 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/14 13:08:23 by abaranov         ###   ########.fr       */
+/*   Created: 2016/12/13 20:01:41 by abaranov          #+#    #+#             */
+/*   Updated: 2016/12/13 22:23:05 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_count_w(char const *s, char c)
+int		ft_amount_d(int n)
 {
-	char	*p;
-	int		cw;
+	int count;
 
-	if (!s)
-		return (0);
-	cw = 0;
-	while (*s)
+	count = 0;
+	if (n < 0 || n == 0)
+		count++;
+	while (n != 0)
 	{
-		(*s == c && *s) ? s++ : 0;
-		p = (char *)s;
-		while (*p != c && *p)
-			p++;
-		(*s != c && *s) ? cw++ : 0;
-		s = p;
+		n /= 10;
+		++count;
 	}
-	return (cw);
+	return (count);
 }

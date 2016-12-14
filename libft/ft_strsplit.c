@@ -6,16 +6,16 @@
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:38:01 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/12 17:50:42 by abaranov         ###   ########.fr       */
+/*   Updated: 2016/12/14 13:16:19 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_l(char *s, char c)
+static	int		ft_count_ll(char *s, char c)
 {
-	int		test;
-	int		i;
+	int test;
+	int i;
 
 	test = 0;
 	i = 0;
@@ -24,14 +24,14 @@ int		ft_count_l(char *s, char c)
 	return (i);
 }
 
-char	*full(char *s, int c)
+static	char	*fulll(char *s, int c)
 {
 	char	*res;
 	int		i;
 
 	i = 0;
-	res = (char *)malloc(ft_count_l((char *)s, c) * sizeof(char) + 1);
-	while (i < ft_count_l((char *)s, c))
+	res = (char *)malloc(ft_count_ll((char *)s, c) * sizeof(char) + 1);
+	while (i < ft_count_ll((char *)s, c))
 	{
 		res[i] = (char)s[i];
 		i++;
@@ -40,12 +40,12 @@ char	*full(char *s, int c)
 	return (res);
 }
 
-int		ft_count_w(const char *s, char c)
+static int		ft_countt_w(char const *s, char c)
 {
 	char	*p;
 	int		cw;
 
-	if (s == 0)
+	if (!s)
 		return (0);
 	cw = 0;
 	while (*s)
@@ -60,12 +60,12 @@ int		ft_count_w(const char *s, char c)
 	return (cw);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**r;
 	int		lol[3];
 
-	if (!(r = (char **)malloc((ft_count_w(s, c) + 1) * 8)))
+	if (!(r = (char **)malloc((ft_countt_w(s, c) + 1) * 8)))
 		return (NULL);
 	lol[1] = ft_count_w((char *)s, c);
 	lol[0] = 1;
@@ -80,7 +80,7 @@ char	**ft_strsplit(char const *s, char c)
 		}
 		else if (lol[0] == 1 && s)
 		{
-			r[lol[2]++] = full((char *)s, c);
+			r[lol[2]++] = fulll((char *)s, c);
 			lol[0] = 0;
 		}
 		s++;

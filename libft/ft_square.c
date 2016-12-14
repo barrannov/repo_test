@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_w.c                                       :+:      :+:    :+:   */
+/*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaranov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/13 19:45:17 by abaranov          #+#    #+#             */
-/*   Updated: 2016/12/14 13:08:23 by abaranov         ###   ########.fr       */
+/*   Created: 2016/12/14 13:03:55 by abaranov          #+#    #+#             */
+/*   Updated: 2016/12/14 13:05:28 by abaranov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_count_w(char const *s, char c)
+float	ft_square(float x)
 {
-	char	*p;
-	int		cw;
+	float	p;
 
-	if (!s)
-		return (0);
-	cw = 0;
-	while (*s)
-	{
-		(*s == c && *s) ? s++ : 0;
-		p = (char *)s;
-		while (*p != c && *p)
-			p++;
-		(*s != c && *s) ? cw++ : 0;
-		s = p;
-	}
-	return (cw);
+	p = x * x;
+	return (p);
 }
